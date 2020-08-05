@@ -4,7 +4,7 @@
 
 QSPI是Quad SPI的简写，表示4线SPI，是Motorola公司推出的SPI接口的扩展，比SPI应用更加广泛。其中共有6个接口使协处理器与主机互联。使用该接口，用户可以一次性传输包含多达16个8位或16位数据的传输队列。一旦传输启动，直到传输结束，都不需要CPU干预，极大的提高了传输效率。该协议在ColdFire系列MCU得到广泛应用。与SPI相比，QSPI的最大结构特点是以80字节的RAM代替了SPI的发送和接收数据寄存器。
 
-![](images/图一.png)
+![](images/p1.png)
 
 ​                                                                          图 1 QSPI协议时序图  
 
@@ -14,17 +14,17 @@ QSPI是Quad SPI的简写，表示4线SPI，是Motorola公司推出的SPI接口�
 
 SEA board 上搭载的Spartan-7 FPGA开发板XC7S15-FTGB196C的部分原理图如下图 2所示，其中标红的是FPGA上和QSPI通信相关的管脚。P2管脚对应FPGA_QSPI_D,H14管脚对应FPGA_QSPI_CLK,M13管脚对应FPGA_QSPI_CS,D13管脚对应FPGA_QSPI_HD,L14管脚对应FPGA_QSPI_Q,D13管脚对应FPGA_QSPI_HD,J13管脚对应FPGA_QSPI_WP。
 
-![](images/图二.png)
+![](images/p2.png)
 
 ​         图 2 FPGA与QSPI通信相关的部分管脚原理图  
 
 图 3为ESP32-dD0WDQ6的部分原理图，其中标红的是QSPI通信使用的管脚。其中，GPIO21对应ESP_QSPI_HD,GPIO22对应ESP_QSPI_WP,GPIO19对应ESP_QSPI_Q,GPIO23对应ESP_QSPI_D,GPIO18对应ESP_QSPI_CLK,GPIO5对应ESP_QSPI_CS。
 
-![](images/图三.png)
+![](images/p3.png)
 
 ​         图 3 ESP32与QSPI通信相关的部分管脚原理图  
 
-![](images/图四.png)
+![](images/p4.png)
 
 ​         图 4 ESP32与FPGA的QSPI接口电路  
 
@@ -56,7 +56,7 @@ SEA board 上搭载的Spartan-7 FPGA开发板XC7S15-FTGB196C的部分原理图�
 
 由于FPGA需要处理的数据是六条信号线上的生数据，我们自行编写状态机来分时处理不同类型的数据。由图 5所示，count为对SCLK上升沿的计数器，根据count的不同，在不同的时序阶段处理对应的数据。
 
-![](images/图五.PNG)
+![](images/p5.PNG)
 
 ​         图 5 FPGA处理QSPI数据的时序状态机     
 
@@ -70,7 +70,7 @@ SEA board 上搭载的Spartan-7 FPGA开发板XC7S15-FTGB196C的部分原理图�
 
 为了定点到浮点的转换，定点表示为有符号整数类型，这与Xilinx System Generator使用的数据类型一致。 定点值使用加权的二进制补码表示为以2的固定幂形式。定点数的二进制表示形式包含三个字段，如图5所示（尽管它仍然是加权的二进制补码）。
 
-![](images/图六.png)
+![](images/p6.png)
 
 ​         图 6 定点表示中的位字段  
 
@@ -88,7 +88,7 @@ SEA board 上搭载的Spartan-7 FPGA开发板XC7S15-FTGB196C的部分原理图�
 
 浮点加法运算的实现包括以下几个步骤符号判断: 对阶、尾数加减操作、规格化、舍入操作、溢出判断。具体实现时通常把规格化、舍入操作、溢出判断作为一个步骤实现。浮点数的格式显然可以分为两部分, 即符号和数据的绝对值。若符号相同则符号不便绝对值相加; 若符号不同则须比较两绝对值的大小然后两绝对值作差运算。符号不同时首先判断和的符号, 显然若两浮点数的阶不同时和的符号当与阶数大的操作数相同; 若阶数不同则继续比较对阶操作首先比较两浮点数的阶数大小。然后需要两数对阶。对阶的原则是小阶对大阶，小阶对大阶的好处是，当小阶不同于大阶时，只需要移除小阶数的尾数部分的低位部分，加法流程图见图 7。
 
-![](images/图七.png)
+![](images/p7.png)
 
 ​         图 7 加/减运算流程  
 
@@ -96,7 +96,7 @@ SEA board 上搭载的Spartan-7 FPGA开发板XC7S15-FTGB196C的部分原理图�
 
 浮点数的乘法运算相对比较简单，只需要将两个操作数的符号位进行异或运算，再将阶码部分做和、尾数部分做积即可。同时需要检查操作数的运算结果是否有溢出问题。乘法流程见图 8:
 
-![](images/图八.png)
+![](images/p8.png)
 
 ​         图 8 乘/除运算流程  
 
