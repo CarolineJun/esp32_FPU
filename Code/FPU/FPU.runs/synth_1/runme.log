@@ -1,0 +1,381 @@
+
+*** Running vivado
+    with args -log QSPI_slave_tp.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source QSPI_slave_tp.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source QSPI_slave_tp.tcl -notrace
+Command: synth_design -top QSPI_slave_tp -part xc7s15ftgb196-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s15'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s15'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4500 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 468.027 ; gain = 103.461
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'QSPI_slave_tp' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/QSPI_slave_tp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'qspi_slave' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_slave.v:23]
+	Parameter data_width bound to: 8 - type: integer 
+	Parameter addr_width bound to: 32 - type: integer 
+	Parameter dummy bound to: 4 - type: integer 
+	Parameter INS_QWrite_Quad bound to: 8'b00110010 
+	Parameter INS_FRead_Quad bound to: 8'b01101011 
+INFO: [Synth 8-6155] done synthesizing module 'qspi_slave' (1#1) [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_slave.v:23]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_RAM_FPGA' [C:/Users/PC/FPU/FPU.runs/synth_1/.Xil/Vivado-29132-DESKTOP-QR9DS6A/realtime/blk_mem_gen_RAM_FPGA_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_RAM_FPGA' (2#1) [C:/Users/PC/FPU/FPU.runs/synth_1/.Xil/Vivado-29132-DESKTOP-QR9DS6A/realtime/blk_mem_gen_RAM_FPGA_stub.v:6]
+WARNING: [Synth 8-689] width (32) of port connection 'addra' does not match port width (8) of module 'blk_mem_gen_RAM_FPGA' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/QSPI_slave_tp.v:60]
+WARNING: [Synth 8-689] width (32) of port connection 'addrb' does not match port width (8) of module 'blk_mem_gen_RAM_FPGA' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/QSPI_slave_tp.v:65]
+INFO: [Synth 8-6157] synthesizing module 'qspi_adder' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_adder.v:23]
+	Parameter addr_width bound to: 8 - type: integer 
+WARNING: [Synth 8-5788] Register mem_reg[15] in module qspi_adder is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_adder.v:77]
+INFO: [Synth 8-6155] done synthesizing module 'qspi_adder' (3#1) [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_adder.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'addr' does not match port width (8) of module 'qspi_adder' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/QSPI_slave_tp.v:75]
+INFO: [Synth 8-6155] done synthesizing module 'QSPI_slave_tp' (4#1) [C:/Users/PC/FPU/FPU.srcs/sources_1/new/QSPI_slave_tp.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 524.078 ; gain = 159.512
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 524.078 ; gain = 159.512
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 524.078 ; gain = 159.512
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7s15ftgb196-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/PC/FPU/FPU.srcs/sources_1/ip/blk_mem_gen_RAM_FPGA/blk_mem_gen_RAM_FPGA/blk_mem_gen_RAM_FPGA_in_context.xdc] for cell 'u_blk_mem_gen_0'
+Finished Parsing XDC File [c:/Users/PC/FPU/FPU.srcs/sources_1/ip/blk_mem_gen_RAM_FPGA/blk_mem_gen_RAM_FPGA/blk_mem_gen_RAM_FPGA_in_context.xdc] for cell 'u_blk_mem_gen_0'
+Parsing XDC File [C:/Users/PC/FPU/FPU.srcs/constrs_1/new/system.xdc]
+WARNING: [Vivado 12-507] No nets matched 'I_qspi_clk_IBUF'. [C:/Users/PC/FPU/FPU.srcs/constrs_1/new/system.xdc:10]
+WARNING: [Vivado 12-507] No nets matched 'I_qspi_cs_IBUF'. [C:/Users/PC/FPU/FPU.srcs/constrs_1/new/system.xdc:11]
+Finished Parsing XDC File [C:/Users/PC/FPU/FPU.srcs/constrs_1/new/system.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/PC/FPU/FPU.srcs/constrs_1/new/system.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/QSPI_slave_tp_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/PC/FPU/FPU.srcs/constrs_1/new/system.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/QSPI_slave_tp_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/QSPI_slave_tp_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.543 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 815.543 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 815.543 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 815.543 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s15ftgb196-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for u_blk_mem_gen_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'R_qspi_io1_en_reg' into 'R_qspi_io0_en_reg' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_slave.v:68]
+INFO: [Synth 8-4471] merging register 'R_qspi_io2_en_reg' into 'R_qspi_io0_en_reg' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_slave.v:69]
+INFO: [Synth 8-4471] merging register 'R_qspi_io3_en_reg' into 'R_qspi_io0_en_reg' [C:/Users/PC/FPU/FPU.srcs/sources_1/new/qspi_slave.v:70]
+INFO: [Synth 8-5546] ROM "mem_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mem_reg[15]" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 21    
+	                1 Bit    Registers := 10    
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 5     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 22    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module qspi_slave 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                8 Bit    Registers := 3     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+Module qspi_adder 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 18    
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 16    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 20 (col length:20)
+BRAMs: 20 (col length: RAMB18 20 RAMB36 10)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_qspi_adder/mem_reg[15]" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 815.543 ; gain = 450.977
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'u_qspi_adder/count_reg[9]' (FDC) to 'u_qspi_adder/addr_reg[7]'
+INFO: [Synth 8-3886] merging instance 'u_qspi_adder/count_reg[8]' (FDC) to 'u_qspi_adder/addr_reg[7]'
+INFO: [Synth 8-3886] merging instance 'u_qspi_adder/addr_reg[5]' (FDC) to 'u_qspi_adder/addr_reg[7]'
+INFO: [Synth 8-3886] merging instance 'u_qspi_adder/addr_reg[6]' (FDC) to 'u_qspi_adder/addr_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_qspi_adder/addr_reg[7] )
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+---------------------+----------+
+|      |BlackBox name        |Instances |
++------+---------------------+----------+
+|1     |blk_mem_gen_RAM_FPGA |         1|
++------+---------------------+----------+
+
+Report Cell Usage: 
++------+---------------------+------+
+|      |Cell                 |Count |
++------+---------------------+------+
+|1     |blk_mem_gen_RAM_FPGA |     1|
+|2     |BUFG                 |     3|
+|3     |CARRY4               |     2|
+|4     |LUT1                 |     4|
+|5     |LUT2                 |    19|
+|6     |LUT3                 |    24|
+|7     |LUT4                 |    10|
+|8     |LUT5                 |    18|
+|9     |LUT6                 |    70|
+|10    |MUXF7                |     8|
+|11    |FDCE                 |   182|
+|12    |FDPE                 |     1|
+|13    |FDRE                 |     8|
+|14    |IBUF                 |     4|
+|15    |IOBUF                |     4|
++------+---------------------+------+
+
+Report Instance Areas: 
++------+---------------+-----------+------+
+|      |Instance       |Module     |Cells |
++------+---------------+-----------+------+
+|1     |top            |           |   373|
+|2     |  u_qspi_adder |qspi_adder |   243|
+|3     |  u_qspi_slave |qspi_slave |   103|
++------+---------------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 835.523 ; gain = 179.492
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 835.523 ; gain = 470.957
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 14 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 835.523 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+60 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 835.523 ; gain = 482.801
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 835.523 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/PC/FPU/FPU.runs/synth_1/QSPI_slave_tp.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file QSPI_slave_tp_utilization_synth.rpt -pb QSPI_slave_tp_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Jul 30 15:17:44 2020...

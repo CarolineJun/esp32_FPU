@@ -1,0 +1,89 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Jul 30 15:18:41 2020
+| Host         : DESKTOP-QR9DS6A running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file QSPI_slave_tp_control_sets_placed.rpt
+| Design       : QSPI_slave_tp
+| Device       : xc7s15
+------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    22 |
+| Unused register locations in slices containing registers |    17 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            1 |
+|      4 |            2 |
+|      8 |           17 |
+|    16+ |            2 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |              47 |           19 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               8 |            3 |
+| Yes          | No                    | Yes                    |             136 |           31 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------+----------------------------------+------------------------------+------------------+----------------+
+|      Clock Signal     |           Enable Signal          |       Set/Reset Signal       | Slice Load Count | Bel Load Count |
++-----------------------+----------------------------------+------------------------------+------------------+----------------+
+|  I_qspi_cs_IBUF_BUFG  |                                  | I_qspi_clk_IBUF_BUFG         |                1 |              1 |
+|  I_qspi_clk_IBUF_BUFG | u_qspi_slave/R_o_data[7]_i_1_n_0 | I_qspi_cs_IBUF_BUFG          |                1 |              4 |
+|  I_qspi_clk_IBUF_BUFG | u_qspi_slave/R_addr0             | I_qspi_cs_IBUF_BUFG          |                1 |              4 |
+|  I_qspi_clk_IBUF_BUFG | u_qspi_slave/R_o_addr            | I_qspi_cs_IBUF_BUFG          |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[8][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[14][7]_i_1_n_0  | u_qspi_adder/addr[4]_i_2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[4][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[0][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[13][7]_i_1_n_0  | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[1][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[15][7]_i_1_n_0  |                              |                3 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[9][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[2][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[12][7]_i_1_n_0  | u_qspi_adder/addr[4]_i_2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[11][7]_i_1_n_0  | u_qspi_adder/addr[4]_i_2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[6][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                4 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[10][7]_i_1_n_0  | u_qspi_adder/addr[4]_i_2_n_0 |                2 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[7][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                4 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[5][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        | u_qspi_adder/mem[3][7]_i_1_n_0   | u_qspi_adder/addr[4]_i_2_n_0 |                1 |              8 |
+|  clk_IBUF_BUFG        |                                  | u_qspi_adder/addr[4]_i_2_n_0 |                8 |             22 |
+|  I_qspi_clk_IBUF_BUFG |                                  | I_qspi_cs_IBUF_BUFG          |               10 |             24 |
++-----------------------+----------------------------------+------------------------------+------------------+----------------+
+
+
